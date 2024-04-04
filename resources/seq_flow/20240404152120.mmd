@@ -1,0 +1,18 @@
+
+sequenceDiagram
+    participant M as Main
+    participant MI as MagicInteger
+    participant U as UI
+    M->>U: get_input()
+    U-->>M: return (numbers, requests)
+    loop for each request in requests
+        M->>MI: generate_magic_integer(numbers, request[0], request[1])
+        MI-->>M: return magicInteger
+        M->>MI: find_kth_digit(request[2])
+        MI-->>M: return kthDigit
+        alt if kthDigit is not 'So sad'
+            M->>U: display_result(kthDigit)
+        else
+            M->>U: display_error('So sad')
+        end
+    end

@@ -1,0 +1,18 @@
+
+classDiagram
+    class Main {
+        +main() void
+    }
+    class MagicInteger {
+        -numbers list
+        -requests list
+        +generate_magic_integer(l:int, v:int) str
+        +find_kth_digit(k:int) str
+    }
+    class UI {
+        +get_input() tuple
+        +display_result(result:str) void
+        +display_error(message:str) void
+    }
+    Main --> MagicInteger
+    Main --> UI
